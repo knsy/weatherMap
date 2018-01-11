@@ -29,6 +29,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+		
+		//API keys
+		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
   }
 
   if (environment === 'test') {
@@ -41,10 +44,16 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
+
+		//API keys
+		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+
+		//API keys
+		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
   }
 
   return ENV;
