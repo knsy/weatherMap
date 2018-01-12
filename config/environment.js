@@ -32,6 +32,14 @@ module.exports = function(environment) {
 		
 		//API keys
 		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
+
+		//Google Maps parameters
+		ENV['g-map'] = {
+				libraries: ['places', 'geometry'],
+				key: process.env.gMapsAPIKey,
+				language: 'en',
+				protocol: 'https'
+		}
   }
 
   if (environment === 'test') {
