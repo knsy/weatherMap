@@ -6,11 +6,25 @@ export default EmberObject.extend({
 
 	init() {
 		this.set('geocoder', new google.maps.Geocoder());
+		this.set('directionsService', new google.maps.DirectionsService());
+		this.set('directionsDisplay', new google.maps.DirectionsRenderer());
 	},
 
-	createMap(element, location) {
-		let map = new google.maps.Map(element, { scrollwheel: false, zoom: 10 });
-		this.pinLocation(location, map);
+	createMap(element, originAddress, destinationAddress) {
+		var mapOptions = {
+			scrollwheel: false, 
+			zoom: 10 ,
+		}
+
+		let map = new google.maps.Map(element, mapOptions);
+
+		this.get('directionsDisplay').setMap(map);
+
+		this.pinLocation(originAddress, map);
+		this.pinLocation(destinationAddress, map);
+
+		this.calcRoute(originAddress, destinationAddress);
+
 		return map;
 	},
 
@@ -23,8 +37,23 @@ export default EmberObject.extend({
 				new google.maps.Marker({ position, map, title: location });
 			}
 		});
-	}
+	},
 
+	calcRoute(originAddress, destinationAddress) {
+		  var start = originAddress;
+		  var end = destinationAddress;
+			let directionsDisplay = this.get('directionsDisplay');
+		  var request = {
+				    origin: start,
+				    destination: end,
+				    travelMode: 'DRIVING'
+				  };
+		  this.get('directionsService').route(request, function(result, status) {
+				    if (status == 'OK') {
+							      directionsDisplay.setDirections(result);
+							    }
+				  });
+	}
 });
 
 //export default function googleMaps() {

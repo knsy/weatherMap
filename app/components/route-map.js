@@ -7,8 +7,10 @@ export default Component.extend({
 
 	didInsertElement() {
 		this._super(...arguments);
-		let location = this.get('location');
-		let mapElement = this.get('maps').getMapElement(location);
+		console.log("map got updated");
+		let originAddress = this.get('originAddress');
+		let destinationAddress = this.get('destinationAddress');
+		let mapElement = this.get('maps').getMapElement(originAddress, destinationAddress);
 		this.$('.map-container').append(mapElement);
 	}
 });

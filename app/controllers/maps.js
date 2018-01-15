@@ -11,7 +11,7 @@ export default Controller.extend({
 			this.set('currentStart', addrStart);
 			this.set('currentEnd', addrEnd);
 
-			let newMap = this.store.createRecord('map', {addrStart: addrStart, addrEnd:addrEnd, toDisplay: true});
+			let newMap = this.store.createRecord('map', {addrStart: addrStart, addrEnd:addrEnd});
 			
 			newMap.save();
 
