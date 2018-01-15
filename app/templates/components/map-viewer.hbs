@@ -1,20 +1,12 @@
-{{#g-map markersFitMode='live' lat=37.7833 lng=-122.4167 zoom=12 as |context|}}
-	{{g-map-address-marker context address=startAddr }}
-	{{g-map-address-marker context address=endAddr }}
+{{! {{#g-map markersFitMode='live' lat=37.7833 lng=-122.4167 zoom=12 as |context|}}
+{{! 	{{g-map-address-marker context address=startAddr }}
+{{! 	{{g-map-address-marker context address=endAddr }}
+{{! 
+{{! 	{{g-map-address-route context
+{{! 		originAddress=startAddr
+{{! 		destinationAddress=endAddr}}
+{{! {{/g-map}}
 
-	{{g-map-address-route context
-		originAddress=startAddr
-		destinationAddress=endAddr}}
-																										 
-	{{g-map-address-route context
-		originAddress=searchedAddress
-		destinationAddress=anotherSearchedAddress
-		onLocationChange=(action "onLocationChangeHandler")}}
-
-	{{g-map-address-route context
-		originAddress=searchedAddress
-		destinationAddress=anotherSearchedAddress
-		onLocationChange="onLocationChangeAction"}}
-{{/g-map}}
+{{route-map location="pleasanton,ca"}}
 
 {{yield}}

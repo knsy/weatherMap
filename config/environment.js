@@ -49,7 +49,7 @@ module.exports = function(environment) {
 		
 		//API keys
 		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
-
+		
 		//Google Maps parameters
 		ENV['g-map'] = {
 				libraries: ['places', 'geometry'],
@@ -71,14 +71,12 @@ module.exports = function(environment) {
     ENV.APP.autoboot = false;
 
 		//API keys
-		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
 
 		//API keys
-		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
   }
 
   return ENV;
