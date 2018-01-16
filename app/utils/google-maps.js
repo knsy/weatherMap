@@ -18,14 +18,21 @@ export default EmberObject.extend({
 
 		let map = new google.maps.Map(element, mapOptions);
 
+		this.set('map', map);
+
 		this.get('directionsDisplay').setMap(map);
 
-		this.pinLocation(originAddress, map);
-		this.pinLocation(destinationAddress, map);
+		// Add markers, but right now unnecessary.
+//		this.pinLocation(originAddress, map);
+//		this.pinLocation(destinationAddress, map);
 
 		this.calcRoute(originAddress, destinationAddress);
 
 		return map;
+	},
+
+	updateMap(originAddress, destinationAddress){
+		this.calcRoute(originAddress, destinationAddress);
 	},
 
 	pinLocation(location, map) {
