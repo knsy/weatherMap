@@ -25,5 +25,14 @@ export default Component.extend({
 			// Ember.Logger.log(`lat: ${lat}, lng: ${lng}`);
 			// Ember.Logger.debug(results);
 		}
+		,
+
+		sendPolylineToStore(polyline){
+			this.sendAction('sendPolylineToStore', polyline);
+			//console.log("map-viewer savePolylin");
+			//alert('sava polyline here');
+		}
+	
+
 	}
 });
