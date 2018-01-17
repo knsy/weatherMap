@@ -79,6 +79,10 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
 
 		//API keys
+		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
+		ENV.geonamesAPIKey = process.env.geonamesAPIKey;
+		ENV.openWeatherAPIKey = process.env.openWeatherAPIKey;
+		
   }
 
   return ENV;
