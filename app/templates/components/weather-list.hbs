@@ -1,11 +1,64 @@
+
+
+<h3> Upcoming Weather: </h3>
+
+
 {{#each weathers as |weather|}}
 
-		<div class="well">
-			<p>A weather: </p>
-			{{weather.zipcode}}
+<div class="card">
+  <div class="card-header">
+    <h5> {{weather.zipcode}} </h5>
+  </div>
 
-			{{weather.weather}}
+	<div class="card-group">
+	  
+	    <div class="card text-center">
+
+	  		<div class="card-body">
+	  		  <p class="card-text">{{weather.weatherNow}}</p>
+	  		</div>
+
+	  		<div class="card-footer text-muted">
+	  		  Within 3 hours.
+	  		</div>
 		</div>
-	{{/each}}
+	  
+
+	  
+	    <div class="card text-center">
+
+	  		<div class="card-body">
+	  		  <p class="card-text">{{weather.weatherThen}}</p>
+	  		</div>
+
+	  		<div class="card-footer text-muted">
+	  		  In 3 - 6 hours.
+	  		</div>
+		</div>
+	  
+
+	  
+	    <div class="card text-center">
+
+	  		<div class="card-body">
+	  		  <p class="card-text">{{weather.weatherLater}}</p>
+	  		</div>
+
+	  		<div class="card-footer text-muted">
+	  		  In 6 - 9 hours.
+	  		</div>
+		</div>
+	  
+
+	</div>
+
+
+</div>
+
+<br/>
+
+{{/each}}
+
+
 
 {{yield}}

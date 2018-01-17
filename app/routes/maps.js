@@ -8,7 +8,7 @@ export default Route.extend({
     //});
     model() {
     	return Ember.RSVP.hash({
-      		maps: this.store.findAll('map'),
+      		maps: this.store.findAll('map', {limit: 3}),
       		weathers: this.store.findAll('weather')
     	});
   	},

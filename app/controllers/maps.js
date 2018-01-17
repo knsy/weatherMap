@@ -82,11 +82,14 @@ export default Controller.extend({
 			//console.log('save new weather object here');
 			console.log(weatherForPlace);
 
-			let weatherDescription = weatherForPlace.list[0].weather[0].description;
+			//let weatherDescription = weatherForPlace.list[0].weather[0].description;
 			//let weatherZip = weatherForPlace.
 
 			let newWeather = this.store.createRecord('weather', 
-				{mapID: this.get('currentMapId'), zipcode: placeZipcode, weather: weatherDescription });
+				{mapID: this.get('currentMapId'), zipcode: placeZipcode, 
+				weatherNow: weatherForPlace.list[0].weather[0].description,
+				weatherThen: weatherForPlace.list[1].weather[0].description,
+				weatherLater: weatherForPlace.list[2].weather[0].description });
 
 
 			newWeather.save();

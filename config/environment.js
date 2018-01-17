@@ -52,13 +52,13 @@ module.exports = function(environment) {
 		ENV.geonamesAPIKey = process.env.geonamesAPIKey;
 		ENV.openWeatherAPIKey = process.env.openWeatherAPIKey;
 		
-		//Google Maps parameters
-		ENV['g-map'] = {
-				libraries: ['places', 'geometry'],
-				key: process.env.gMapsAPIKey,
-				language: 'en',
-				protocol: 'https'
-		}
+//		//Google Maps parameters
+//		ENV['g-map'] = {
+//				libraries: ['places', 'geometry'],
+//				key: process.env.gMapsAPIKey,
+//				language: 'en',
+//				protocol: 'https'
+//		}
   }
 
   if (environment === 'test') {
