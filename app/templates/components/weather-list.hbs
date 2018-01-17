@@ -1,0 +1,11 @@
+{{#each weathers as |weather|}}
+
+		<div class="well">
+			<p>A weather: </p>
+			{{weather.zipcode}}
+
+			{{weather.weather}}
+		</div>
+	{{/each}}
+
+{{yield}}

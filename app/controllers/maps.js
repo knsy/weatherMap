@@ -5,9 +5,36 @@ export default Controller.extend({
 	currentStart: "Oakland, CA",
 	currentEnd: "Emeryville, CA",
 	currentMapId: '-L3-fZX9ZHWd0eLCINeR',
+	currentPoly: null,
+
+	init(){
+		this._super(...arguments);
+		this.errors = [];
+		
+		//clear out old weather data.
+		this.get('store').findAll('weather').then(function(record){
+     		record.content.forEach(function(rec) {
+        		Ember.run.once(this, function() {
+           			rec.deleteRecord();
+           			rec.save();
+       			 });
+     		}, this);
+  		});
+	},
 
 	actions: {
 		addrSubmit: function(){
+			//clear out old weather data.
+			this.get('store').findAll('weather').then(function(record){
+     			record.content.forEach(function(rec) {
+        			Ember.run.once(this, function() {
+           				rec.deleteRecord();
+           				rec.save();
+       			 	});
+     			}, this);
+  			});
+
+
 			let addrStart = this.get('addrStart');
 			let addrEnd = this.get('addrEnd');
 
@@ -17,12 +44,7 @@ export default Controller.extend({
 			let newMap = this.store.createRecord('map', {addrStart: addrStart, addrEnd:addrEnd, routePolyline: null});
 			
 			this.set('currentMapId', newMap.get('id'));
-
-			//console.log(this.get('currentMap'));
-
-			//newMap.save();
-
-			//((this.get('store').findAll('map')).then((response)=>{console.log(response)}));
+			
 
 		},
 
@@ -36,6 +58,7 @@ export default Controller.extend({
 			var writeMap = function(map) {
 				let currentMap = map;
   				this.set('currentMapId' , currentMap.get('id'));
+  				this.set('currentPoly', polyline);
   				currentMap.set('routePolyline', polyline);
   				//console.log(this.get('currentMap'));
   				currentMap.save();
@@ -53,6 +76,20 @@ export default Controller.extend({
 
 			
 
+		},
+
+		sendWeatherToStore(weatherForPlace, placeZipcode){
+			//console.log('save new weather object here');
+			console.log(weatherForPlace);
+
+			let weatherDescription = weatherForPlace.list[0].weather[0].description;
+			//let weatherZip = weatherForPlace.
+
+			let newWeather = this.store.createRecord('weather', 
+				{mapID: this.get('currentMapId'), zipcode: placeZipcode, weather: weatherDescription });
+
+
+			newWeather.save();
 		}
 	
 	}

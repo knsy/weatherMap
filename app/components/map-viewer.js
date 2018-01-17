@@ -16,8 +16,8 @@ export default Component.extend({
 		//     toDisplay: true
 		//   }
 		// });
-		console.log(this.get('store').findAll('map'));
-		return this.get('store').findAll('map');
+		//console.log(this.get('store').findAll('map'));
+		//return this.get('store').findAll('map');
 	},
 	
 	actions: {

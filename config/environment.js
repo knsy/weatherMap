@@ -50,6 +50,7 @@ module.exports = function(environment) {
 		//API keys
 		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
 		ENV.geonamesAPIKey = process.env.geonamesAPIKey;
+		ENV.openWeatherAPIKey = process.env.openWeatherAPIKey;
 		
 		//Google Maps parameters
 		ENV['g-map'] = {

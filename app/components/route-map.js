@@ -109,7 +109,7 @@ export default Component.extend({
 				directionsDisplay.setDirections(result);
 				//console.log(google.maps.geometry.encoding.decodePath(result.routes[0].overview_polyline));
 				//this.getZipCodes(google.maps.geometry.encoding.decodePath(result.routes[0].overview_polyline));
-				this.sendPolyline(google.maps.geometry.encoding.decodePath(result.routes[0].overview_polyline));
+				this.sendPolyline(result.routes[0].overview_polyline);
 			}
 		}.bind(this);
 
@@ -118,25 +118,6 @@ export default Component.extend({
 
 	sendPolyline(polyline){
 		this.send('sendPolylineToStore', polyline);
-	},
-
-	getZipCodes(coordArray){
-		//let coordArray = (google.maps.geometry.encoding.decodePath(result.routes[0].overview_polyline));
-		let coord = coordArray.pop();
-		while(coord !== undefined){
-			//console.log(coord.toString());	
-			this.latlngToZip(coord.lat(), coord.lng());
-			coord = coordArray.pop();
-			 
-			}
-	},
-
-	latlngToZip(lat, lng) {
-		let serviceUrl = "http://api.geonames.org/findNearbyPostalCodesJSON?";
-		let requestUrl = `${serviceUrl}lat=${lat}&lng=${lng}&username=${config.geonamesAPIKey}`
-		//console.log(requestUrl);
-		//this.send('sendIt', 666);
-
 	}
 
 

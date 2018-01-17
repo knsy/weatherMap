@@ -10,8 +10,12 @@
 	{{/bs-form}}
 
 	<hr />
+	
+	{{weather-list currentPoly=currentPoly sendWeatherToStore='sendWeatherToStore' weathers=weathers}}
 
-	{{#each model as |map|}}
+	<hr />
+
+	{{#each maps as |map|}}
 
 		<div class="well">
 			<p>A maps: </p>
@@ -20,6 +24,8 @@
 			{{map.addrEnd}}
 		</div>
 	{{/each}}
+
+
 
 	{{outlet}}
 </div>
