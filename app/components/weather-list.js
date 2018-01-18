@@ -84,14 +84,14 @@ export default Component.extend({
 	},
 
 	compileGeoReq(lat, lng) {
-		let serviceUrl = "http://api.geonames.org/findNearbyPostalCodesJSON?";
+		let serviceUrl = "//api.geonames.org/findNearbyPostalCodesJSON?";
 		let requestUrl = `${serviceUrl}lat=${lat}&lng=${lng}&username=${config.geonamesAPIKey}`;
 		return (requestUrl);
 	},
 
 	compileWeatherReq(zipCode) {
 		//api.openweathermap.org/data/2.5/forecast?zip=94040,us&APPID=1111111111
-		let serviceUrl = "http://api.openweathermap.org/data/2.5/forecast?";
+		let serviceUrl = "//api.openweathermap.org/data/2.5/forecast?";
 		let requestUrl = `${serviceUrl}zip=${zipCode},us&APPID=${config.openWeatherAPIKey}`;
 		return (requestUrl);
 	}
