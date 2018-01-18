@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
 
 		firebase: {
-			apiKey: process.env.firebaseAPIKey,
+			apiKey: '', //process.env.firebaseAPIKey,
 			authDomain: process.env.firebaseAuthDomain,
 			databaseURL: process.env.firebaseURL,
 			storageBucket: process.env.firebaseStorageBucket,
@@ -35,7 +35,11 @@ module.exports = function(environment) {
 			 'script-src': "'self' 'unsafe-eval' apis.google.com",
 			 'frame-src': "'self' https://*.firebaseapp.com",
 			 'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
-		 }
+		 },
+
+    GOOGLE_MAPS_API_KEY : process.env.GOOGLE_MAPS_API_KEY,
+    geonamesAPIKey : process.env.geonamesAPIKey,
+    openWeatherAPIKey : process.env.openWeatherAPIKey
 		
 		
   };
@@ -48,9 +52,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 		
 		//API keys
-		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
-		ENV.geonamesAPIKey = process.env.geonamesAPIKey;
-		ENV.openWeatherAPIKey = process.env.openWeatherAPIKey;
+		//ENV.gMapsAPIKey = process.env.gMapsAPIKey;
+		//ENV.geonamesAPIKey = process.env.geonamesAPIKey;
+		//ENV.openWeatherAPIKey = process.env.openWeatherAPIKey;
 		
 //		//Google Maps parameters
 //		ENV['g-map'] = {
@@ -79,9 +83,9 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
 
 		//API keys
-		ENV.gMapsAPIKey = process.env.gMapsAPIKey;
-		ENV.geonamesAPIKey = process.env.geonamesAPIKey;
-		ENV.openWeatherAPIKey = process.env.openWeatherAPIKey;
+		//ENV.gMapsAPIKey = process.env.gMapsAPIKey;
+		//ENV.geonamesAPIKey = process.env.geonamesAPIKey;
+		//ENV.openWeatherAPIKey = process.env.openWeatherAPIKey;
 		
   }
 

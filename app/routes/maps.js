@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import Ember from 'ember';
 
 export default Route.extend({
 	//model:
@@ -8,7 +9,7 @@ export default Route.extend({
     //});
     model() {
     	return Ember.RSVP.hash({
-      		maps: this.store.findAll('map', {limit: 3}),
+      		maps: this.store.findAll('map'),
       		weathers: this.store.findAll('weather')
     	});
   	},
