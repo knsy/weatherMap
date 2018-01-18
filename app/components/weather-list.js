@@ -84,7 +84,7 @@ export default Component.extend({
 	},
 
 	compileGeoReq(lat, lng) {
-		let serviceUrl = "//api.geonames.org/findNearbyPostalCodesJSON?";
+		let serviceUrl = "//secure.geonames.org/findNearbyPostalCodesJSON?";
 		let requestUrl = `${serviceUrl}lat=${lat}&lng=${lng}&username=${config.geonamesAPIKey}`;
 		return (requestUrl);
 	},
