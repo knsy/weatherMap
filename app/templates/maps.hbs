@@ -3,13 +3,19 @@
 
 	<hr />
 
-	{{#bs-form formLayout=formLayout model=this onSubmit=(action "addrSubmit") as |form|}}
-		{{form.element controlType="text" label="Start Addr" property="addrStart" 
-			value=addrStart useIcons=false}}
-		{{form.element controlType="text" label="End Addr" property="addrEnd" 
-			value=addrEnd useIcons=false}}
-		{{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
-	{{/bs-form}}
+	<form>
+	  <div class="form-group">
+	    <label>Start Address</label>
+	    {{input type="text" class="form-control" value=addrStart placeholder="Oakland, CA"}}
+	  </div>
+
+	  <div class="form-group">
+	    <label>End Address</label>
+	    {{input type="text" class="form-control" value=addrEnd placeholder="Emeryville, CA"}}
+	  </div>
+
+	  <button {{action 'addrSubmit'}} class="btn btn-primary">Submit</button>
+	</form>
 
 	<hr />
 	
