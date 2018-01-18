@@ -4,8 +4,10 @@
 	<hr />
 
 	{{#bs-form formLayout=formLayout model=this onSubmit=(action "addrSubmit") as |form|}}
-			{{form.element controlType="text" label="Start Addr" property="addrStart" value=addrStart}}
-			{{form.element controlType="text" label="End Addr" property="addrEnd" value=addrEnd}}
+		{{form.element controlType="text" label="Start Addr" property="addrStart" 
+			value=addrStart useIcons=false}}
+		{{form.element controlType="text" label="End Addr" property="addrEnd" 
+			value=addrEnd useIcons=false}}
 		{{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
 	{{/bs-form}}
 
